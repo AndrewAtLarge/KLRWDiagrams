@@ -13,6 +13,8 @@
 %% required packages
 \RequirePackage{xparse}
 \RequirePackage{tikz}
+\usetikzlibrary{decorations.markings,decorations.pathreplacing}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% TikZ style settings
@@ -23,8 +25,6 @@
   dot/.style = {
     decoration={
         markings,
-        post length=0.25mm,
-        pre length=0.25mm,
         mark=at position #1 with {
             \node[circle, radius=0.3cm, inner sep=-2.0pt,
                   color = \pgfkeysvalueof{/tikz/dot colour},
@@ -42,7 +42,7 @@
     draw=#1!50,
     fill=none,
     line width=0.35mm,
-    preaction={draw=#1, line width=2.5pt, -},
+    preaction={draw=#1, line width=0.6mm, -},
     nodes={color=#1}
   },
   redstring/.default=red,
@@ -56,9 +56,9 @@
     dot colour=#1,
     nodes={color=#1}
   },
-  solid/.default=blue,
+  solid/.default=NavyBlue,
   ghost/.style = {
-    solid=darkgray,
+    solid=DarkGray,
     dashed
   }
 }

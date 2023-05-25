@@ -7,7 +7,6 @@
 \usepackage[a4paper,margin=18mm]{geometry}
 \synctex=1
 
-\usepackage{fixltx2e} % LaTeX patches, \textsubscript
 \usepackage{cmap} % fix search and cut-and-paste in Acrobat
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -19,16 +18,30 @@
         backgroundcolor=\color{Ivory},
         numbers=none,
         breaklines=true,
-        keywordstyle=\color{Blue},
         commentstyle=\color{Brown},
         tabsize=2,
-        morekeywords={SmartUnit,SmartUnitSettings,sisetup},
         resetmargins=true,
+        keywordstyle=\color{Blue},
+        morekeywords={DottedIdempotentA,
+                      DottedIdempotentAA,
+                      DottedCIdempotentC,
+                      DottedIdempotentD
+        },
+        keywordstyle={[1]\color{ForestGreen}},
+        classoffset=1,
+        morekeywords={
+            tikzpicture,
+            draw,
+            node
+        }
 }
 % hyperref links to ctan
-\newcommand\ctan[1]{\href{https://www.ctan.org/pkg/#1}{\texttt{#1}}}
+
 
 \usepackage{xparse}
+
+\newcommand\ctan[1]{\href{https://www.ctan.org/pkg/#1}{\texttt{#1}}}
+
 \NewDocumentCommand{\Verb}{v}{{\color{blue}#1}}
 
 \newcommand\Section[1]{\subsection{\textcolor{blue}{#1}}}
@@ -85,8 +98,22 @@
     \KLRWTitle
 
     \begin{lstlisting}
+        \begin{tikzpicture}
+            \draw[solid,dot](0,0)--++(0,1);
+        \end{tikzpicture}
+    \end{lstlisting}
+    \begin{tikzpicture}
+        \draw[solid,dot](0,0)--++(0,1);
+    \end{tikzpicture}
+
+    \begin{lstlisting}
         \DottedIdempotentA[2,6,8]{2}{0,1,2,3,2,1,0,1,2}
+    \end{lstlisting}
+
+    \DottedIdempotentA[2,8]{3}{0,1,2,3,4,3,2,1,0}
+    \begin{lstlisting}
         \DottedIdempotentA[2,8]{3}{0,1,2,3,4,3,2,1,0}
     \end{lstlisting}
+
 
 \end{document}
